@@ -1,13 +1,14 @@
-# 계수정렬 이용
-
 import sys
 input = sys.stdin.readline
 
 n = int(input())
 li = []
+cnt = [0] * 10000
 
 for i in range(n):
-    li.append(int(input()))
+    cnt[int(input()) - 1] += 1
 
-for i in sorted(li):
-    print(i)
+for k, v in enumerate(cnt):
+    if v != 0:
+        for i in range(v):
+            print(k+1)
