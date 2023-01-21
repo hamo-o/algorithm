@@ -2,11 +2,11 @@ x, y = map(int, input().split())
 z = (100*y) // x
 
 left = y
-right = x
+right = 2000000000
 while True:
     mid = (left+right) // 2
 
-    if x == y:
+    if z >= 99:
         print(-1)
         break
     elif left > right:
