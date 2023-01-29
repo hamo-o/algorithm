@@ -14,27 +14,21 @@ for i in range(n):
 
 
 def memo_time():
-    temps = []
-
     for i in range(n):
         money = 0
-        if li[i][0] == 1:
-            money += li[i][1]
-        else:
-            li[i][0] -= 1
-            temps.append(li[i])
+        for j in range(i):
+            if li[j][0] == i - j + 1:
+                money += li[j][1]
 
         if i == 0:
             memo[i] = money
-
         else:
-            for temp in temps:
-                if temp[0] == 1:
-                    money += temp[1]
-
-            memo[i] = memo[i-1] + money
-
-        print(memo, temps)
+            print(i, memo[i-1], money)
+            memo[i] = max(memo[i-1], money)
+            if li[i][0] == 1:
+                memo[i] += li[i][1]
+                print("hi")
+        print(memo)
 
 
 memo_time()
