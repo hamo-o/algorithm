@@ -16,18 +16,20 @@ for i in range(n):
 def memo_time():
     for i in range(n):
         money = 0
-        for j in range(i):
-            if li[j][0] == i - j + 1:
+        j = 0
+        while j < i+1:
+            if li[j][0] == i - j + 1 or 1:
                 money += li[j][1]
+                j += li[j][0]
+            else:
+                j += 1
 
         if i == 0:
             memo[i] = money
         else:
             print(i, memo[i-1], money)
             memo[i] = max(memo[i-1], money)
-            if li[i][0] == 1:
-                memo[i] += li[i][1]
-                print("hi")
+
         print(memo)
 
 
