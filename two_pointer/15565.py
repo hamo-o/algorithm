@@ -8,6 +8,7 @@ li = list(map(int, input().split()))
 start = 0
 end = 0
 length = 1
+min_length = n
 
 if li[start] == 1:
     count = 1
@@ -16,11 +17,7 @@ else:
 
 while end < n:
     if count >= k:
-        if start == 0:
-            min_length = length
-        else:
-            min_length = min(length, min_length)
-
+        min_length = min(length, min_length)
         if li[start] == 1:
             count -= 1
 
@@ -28,7 +25,7 @@ while end < n:
         length -= 1
     else:
         if start == 0 and end == n-1:
-            print(-1)
+            min_length = -1
             break
         else:
             end += 1
