@@ -1,27 +1,22 @@
 import sys
 input = sys.stdin.readline
 
+
+def find(s, t):
+    i = 0
+    for char in t:
+        if char == s[i]:
+                i += 1
+        if i == len(s):
+            return "Yes"
+    return "No"
+
+
 while True:
     try:
         line = input()
-        if line == "\n":
-            break
         s, t = line.split()
-        start = t.find(s[0])
+        print(find(s, t))
 
-        if start != -1:
-            i = 1
-            for char in t:
-                if char == s[i]:
-                    i += 1
-                if i == len(s):
-                    break
-            if i == len(s):
-                print("Yes")
-            else:
-                print("No")
-
-        else:
-            print("No")
-    except EOFError:
+    except:
         break
