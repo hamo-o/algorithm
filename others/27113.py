@@ -80,14 +80,14 @@ for line in lines:
             y += 1
     elif line[0] <= x <= line[1]:
         x = line[1]+1
-        if x == m+1:
+        if x > m:
             break
         else:
             y += 1
     else:
         y += 1
 
-if x == m and y == n:
+if y == n:
     print("YES")
 else:
     print("NO")
