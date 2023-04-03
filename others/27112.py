@@ -9,7 +9,7 @@ for i in range(n):
     d, t = map(int, input().split())
     works.append([d, t])
 
-works.sort(key=lambda x: (x[0], -x[1]))
+works.sort()
 
 weekend_num = (works[-1][0] // 7)*2
 day_num = 0
@@ -25,7 +25,7 @@ for work in works:
         cnt += (work[1]-day_num)
         work_num += day_num
 
-    # print(day_num, work[1], work_num, cnt)
+    print(day_num, work[1], work_num, cnt)
 
 if work_num > works[-1][0] - weekend_num:
     cnt += weekend_num
