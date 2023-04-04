@@ -28,7 +28,7 @@ def mul(x, y):
         for s in range(n):
             for j in range(n):
                 z[f][s] += (x[f][j] * y[j][s])
-                z[f][s] %= 1000
+            z[f][s] %= 1000
     return z
 
 
@@ -40,13 +40,15 @@ def divide(size):
     if size % 2 == 0:
         return mul(square_matrix, square_matrix)
     else:
-        return mul(mul(square_matrix, matrix), square_matrix)
+        return mul(mul(square_matrix, square_matrix), matrix)
 
 
-if b > 2:
-    answer = divide(b)
-else:
-    answer = mul(matrix, matrix)
+for i in range(n):
+    for j in range(n):
+        matrix[i][j] %= 1000
+
+answer = divide(b)
+
 
 for ans in answer:
     print((" ").join(map(str, ans)))
