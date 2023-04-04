@@ -11,26 +11,26 @@ for i in range(n):
 
 works.sort()
 
-weekend_num = (works[-1][0] // 7)*2
-day_num = 0
-work_num = 0
-cnt = 0
+time = 0
+regular_work = 0
+overtime_work = 0
 
 for work in works:
-    day_num = work[0] - work_num
+    time = work[0]
 
-    if day_num >= work[1]:
-        work_num += work[1]
-    else:
-        cnt += (work[1]-day_num)
-        work_num += day_num
+    time -= (work[0]//7)*2
+    if work[0] % 7 == 6:
+        time -= 1
 
-    print(day_num, work[1], work_num, cnt)
+    regular_work += work[1]
 
-if work_num > works[-1][0] - weekend_num:
-    cnt += weekend_num
+    if time < regular_work:
+        overtime_work += (regular_work - time)
+        regular_work = time
 
-if cnt > works[-1][0]:
-    print(-1)
-else:
-    print(cnt)
+    if overtime_work > work[0]:
+        overtime_work = -1
+        break
+
+
+print(overtime_work)
