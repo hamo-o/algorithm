@@ -18,7 +18,10 @@ overtime_work = 0
 for work in works:
     time = work[0]
 
+    # 주말이 포함되어 있을 경우 주말 통째로 빼주기
     time -= (work[0]//7)*2
+
+    # 토요일로 끝나는 경우 토요일 빼주기
     if work[0] % 7 == 6:
         time -= 1
 

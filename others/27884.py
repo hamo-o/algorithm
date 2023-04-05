@@ -43,4 +43,4 @@ for li in flags:
     answer_down += temp_down
     answer_up += temp_up
 
-print(answer_down+answer_up % (1000000000+7))
+print((answer_down+answer_up) % (1000000000+7))
