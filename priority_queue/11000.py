@@ -13,11 +13,11 @@ heap = []
 cnt = 0
 for i in range(n):
     [start, end] = times[i]
-    if not heap or heap[0][0] > start:
+    if not heap or heap[0] > start:
         cnt += 1
     else:
         heapq.heappop(heap)
     
-    heapq.heappush(heap, [end, start])
+    heapq.heappush(heap, end)
 
 print(cnt)
